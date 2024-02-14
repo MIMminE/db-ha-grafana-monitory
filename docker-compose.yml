@@ -2,17 +2,23 @@ version: "3"
 
 services:
   db-1:
-    image: harunuts/my_db_exporter
+    image: mysql-exporter
+    restart: always
+    build:
+      context: ./docker-workspace
+      dockerfile: Dockerfile
     container_name: db1
     environment:
       - MYSQL_ROOT_PASSWORD=TEST
       - MYSQL_DATABASE=testdb
     ports:
       - "7001:3306"
+      - "9100:9100"
 
   db-2:
     image: mysql
     container_name: db2
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=TEST
       - MYSQL_DATABASE=testdb
@@ -21,6 +27,7 @@ services:
 
   db-app-1:
     container_name: app1
+    restart: always
     build:
       context: ./dev
       dockerfile: Dockerfile
@@ -33,6 +40,7 @@ services:
 
   db-app-2:
     container_name: app2
+    restart: always
     build:
       context: ./dev
       dockerfile: Dockerfile
@@ -44,9 +52,7 @@ services:
       - db-2
 
   prometheus:
+    image: prom/prometheus
     container_name: prom-service
-    build:
-      context: ./prometheus
-      dockerfile: Dockerfile
     ports:
       - "9090:9090"
