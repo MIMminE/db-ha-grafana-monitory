@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  db-1:
+    image: harunuts/my_db_exporter
+    container_name: db1
+    environment:
+      - MYSQL_ROOT_PASSWORD=TEST
+      - MYSQL_DATABASE=testdb
+    ports:
+      - "7001:3306"
+
+  db-2:
+    image: mysql
+    container_name: db2
+    environment:
+      - MYSQL_ROOT_PASSWORD=TEST
+      - MYSQL_DATABASE=testdb
+    ports:
+      - "7002:3306"
+
+  db-app-1:
+    container_name: app1
+    build:
+      context: ./dev
+      dockerfile: Dockerfile
+    ports:
+      - "7003:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db1:3306/testdb
+    depends_on:
+      - db-1
+
+  db-app-2:
+    container_name: app2
+    build:
+      context: ./dev
+      dockerfile: Dockerfile
+    ports:
+      - "7004:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db2:3306/testdb
+    depends_on:
+      - db-2
+
+  prometheus:
+    container_name: prom-service
+    build:
+      context: ./prometheus
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
