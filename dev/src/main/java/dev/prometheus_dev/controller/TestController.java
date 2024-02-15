@@ -19,4 +19,6 @@ public class TestController {
         repository.save(new LogTable("hello"));
         return "ok";
     }
+
+
 }
