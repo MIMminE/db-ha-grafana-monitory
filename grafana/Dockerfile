@@ -1,5 +1,3 @@
-FROM ubuntu:latest
+FROM harunuts/grafana-custom:1.0
 
-COPY ./grafana-enterprise_10.3.3_amd64.deb /
-
-#RUN dpkg -i app/grafana-enterprise_10.3.3_amd64.deb
+CMD sudo service grafana-server start & /bin/bash

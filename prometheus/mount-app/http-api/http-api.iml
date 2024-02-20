@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/venv/Lib/site-packages/pip/_internal/utils" />
+        <option name="rootFolder" value="$MODULE_DIR$/../../../dev-os/mount-app/http-api/venv/Lib/site-packages/pip/_internal/utils" />
         <option name="settingsModule" value="" />
         <option name="manageScript" value="" />
         <option name="environment" value="&lt;map/&gt;" />

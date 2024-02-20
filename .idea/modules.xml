@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Prometheus_Dev.iml" filepath="$PROJECT_DIR$/.idea/Prometheus_Dev.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dev-os/mount-app/http-api/http-api.iml" filepath="$PROJECT_DIR$/dev-os/mount-app/http-api/http-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prometheus/mount-app/http-api/http-api.iml" filepath="$PROJECT_DIR$/prometheus/mount-app/http-api/http-api.iml" />
     </modules>
   </component>
 </project>
