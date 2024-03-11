@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:pro_db_test}
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:7001/testdb}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:TEST}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    generate-ddl: true
+
+
+
+
+
